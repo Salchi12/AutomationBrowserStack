@@ -50,13 +50,8 @@ public class FactoringPage {
     private By btnGuardarCuenta = By.xpath("//a-hyperloop-button[@id=\"btnSave\"]");
     private By terminosCuentas = By.xpath("//m-hyperloop-checkbox[@formcontrolname=\"pdp\"]");
     private By botonBiometria = By.xpath("//a-hyperloop-button[@id=\"formBtnNextStep\"]");
-
-    private static final String HOST_FACULTADES = "body > hyperloop-root > hyperloop-home-ui > div.home_body > hyperloop-factoring > hyperloop-factoring-ui > section > div > div.aside-left col-xs-12 col-8 background-layout__b > fact-factoring > fact-factoring-ui > div > fact-faculties-step > fact-faculties-step-ui > section > div.faculties-view > div:nth-child(4) > form > div > m-hyperloop-inputgroup-radio";
-    private static final String TENGOFACULTADES_TARGET = "div > div > div:nth-child(1) > label";
-    //public static final Target TENGOFACULTADES_BUTTON = Target.the("'Check si tengo poderes'").located(ByShadow.cssSelector(TENGOFACULTADES_TARGET, HOST_FACULTADES));
-    private By parent = By.xpath("//m-hyperloop-inputgroup-radio");
-    private By boton1Rl = By.xpath("//input[@value=\"YES\"]");
-    //private By boton1Rl = By.xpath("//m-hyperloop-inputgroup-radio[@idradio=\"facultiesControl\"]//following::input[1]");
+    private static final String HOST_FACULTADES = "body > hyperloop-root > hyperloop-home-ui > div.home_body > hyperloop-factoring > hyperloop-factoring-ui > section > div > div.aside-left.col-xs-12.col-8.background-layout__b > fact-factoring > fact-factoring-iu > div > fact-faculties-step > fact-faculties-step-ui > section > div.faculties-view > div:nth-child(4) > form > div > m-hyperloop-inputgroup-radio";
+    private static final String TENGOFACULTADES_TARGET = "div > div > div:nth-child(1)";
     private By enviarSolicitudBoton = By.xpath("//a-hyperloop-button[@id=\"btnFinalize\"]");
     private By confirmarEnvio = By.xpath("//a-hyperloop-button[id=\"btnSend\"]");
 
@@ -142,6 +137,7 @@ public class FactoringPage {
     public void validarOtp(String OTP) throws InterruptedException{
 
         webDriver.findElement(nuevoBotonStg).click();
+        webDriver.findElement(nuevoBotonStg).click();
         Thread.sleep(2400);
         webDriver.findElement(inputOtp2).sendKeys(OTP);
         webDriver.findElement(inputOtp).sendKeys(OTP);
@@ -168,7 +164,8 @@ public class FactoringPage {
         Thread.sleep(2200);
         //boton facultades
         //driver.findElement(By.id("parentId")).getShadowRoot().findElement(By.cssSelector("label")).findElement(By.tagName("input"))
-        webDriver.findElement(By.className("ng-untouched ng-pristine ng-invalid hydrated")).getShadowRoot().findElement(By.cssSelector(TENGOFACULTADES_TARGET)).findElement(By.id("styled-radio-facultiesControl-0")).click();
+        //webDriver.findElement(By.className("ng-untouched ng-pristine ng-invalid hydrated")).getShadowRoot().findElement(By.cssSelector(TENGOFACULTADES_TARGET)).findElement(By.id("styled-radio-facultiesControl-0")).click();
+        webDriver.findElement(By.cssSelector(HOST_FACULTADES)).getShadowRoot().findElement(By.cssSelector(TENGOFACULTADES_TARGET)).findElement(By.cssSelector("label")).click();
         if(representante.equals("1RL")) {
             System.out.println("1rl");
 

@@ -26,8 +26,8 @@ public class FactoringStepDefinition {
     public void setUp() throws MalformedURLException {
         MutableCapabilities capabilities = new MutableCapabilities();
         HashMap<String, String> bstackOptions = new HashMap<>();
-        bstackOptions.put("userName", "jhonparedes_o8ZuJ9");
-        bstackOptions.put("accessKey", "8tPkNWVhLyYSbPpSkqBu");
+        bstackOptions.put("userName", "andersson_YvfZ9K");
+        bstackOptions.put("accessKey", "TdW3xi5UsYpBquJW2Gup");
         bstackOptions.put("browserstackSDK","cucumber-testng-javaagent/1.11.9");
         bstackOptions.put("timezone","Lima");
 
@@ -47,7 +47,7 @@ public class FactoringStepDefinition {
     @Given("Estoy en la pagina '(.+)'$")
     public void I_am_on_the_website(String url) throws Throwable {
         driver.get(url);
-        Thread.sleep(5200);
+        Thread.sleep(5500);
     }
 
     @When("se ingresa el ruc {string} y  las ventas anuales {string}")
